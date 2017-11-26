@@ -88,11 +88,21 @@ And then I said "I have \(apples + oranges) pieces of fruit."
 var shoppingList = ["catfish", "water", "tulips", "blue paint"]
 shoppingList[1] = "bottle of water"
 
+shoppingList.append(contentsOf: ["test1"])
+shoppingList += ["test2"]
+
+//print(shoppingList)
+
 var occupations = [
     "Malcolm": "Captain",
     "Kaylee": "Mechanic",
  ]
 occupations["Jayne"] = "Public Relations"
+
+occupations["Doraemon"] = "nobita"
+//occupations["test"] = 123 // error
+
+print(occupations)
 
 //: To create an empty array or dictionary, use the initializer syntax.
 //:
