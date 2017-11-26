@@ -55,12 +55,13 @@ let widthLabel = label + String(width)
 
 //: - Experiment:
 //: Try removing the conversion to `String` from the last line. What error do you get?
+//このようなエラーメッセージが表示される
+//Binary operator '+' cannot be applied to operands of type 'String' and 'Int'
+
 
 //: There’s an even simpler way to include values in strings: Write the value in parentheses, and write a backslash (`\`) before the parentheses. For example:
 //:
 //let widthLabel2 = label + width
-//このようなエラーメッセージが表示される
-//Binary operator '+' cannot be applied to operands of type 'String' and 'Int'
 
 let apples = 3
 let oranges = 5
@@ -69,6 +70,11 @@ let fruitSummary = "I have \(apples + oranges) pieces of fruit."
 
 //: - Experiment:
 //: Use `\()` to include a floating-point calculation in a string and to include someone’s name in a greeting.
+let dareka = "ドラえもん"
+let val3 = 10.25
+let val4 = 15.75
+let greetingString = "僕\(dareka)、\(val3 + val4)です"
+//"僕ドラえもん、26.0です"
 //:
 //: Use three double quotes (`"""`) for strings that take up multiple lines. Indentation at the start of each quoted line is removed, as long as it matches the indentation of the closing quote. For example:
 //:
