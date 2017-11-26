@@ -7,15 +7,36 @@ func greet(person: String, day: String) -> String {
 }
 greet(person: "Bob", day: "Tuesday")
 
+
 //: - Experiment:
 //: Remove the `day` parameter. Add a parameter to include today’s lunch special in the greeting.
+
+func greet2(person: String, special: String) -> String {
+  return "Hello \(person), today’s lunch special is \(special)."
+}
+print(greet2(person: "Bobbbb", special: "egg"))
+
 //:
 //: By default, functions use their parameter names as labels for their arguments. Write a custom argument label before the parameter name, or write `_` to use no argument label.
 //:
 func greet(_ person: String, on day: String) -> String {
     return "Hello \(person), today is \(day)."
 }
+
 greet("John", on: "Wednesday")
+
+
+//greet(person: "John", on: "Wednesday")
+// ↑はエラーになる
+//error: GuidedTour.playground:21:1: error: argument labels '(person:, on:)' do not match any available overloads
+//greet(person: "John", on: "Wednesday")
+//^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+//GuidedTour.playground:21:1: note: overloads for 'greet' exist with these partially matching parameter lists: (person: String, day: String), (String, on: String)
+//greet(person: "John", on: "Wednesday")
+//^
+
+
 
 //: Use a tuple to make a compound value—for example, to return multiple values from a function. The elements of a tuple can be referred to either by name or by number.
 //:
