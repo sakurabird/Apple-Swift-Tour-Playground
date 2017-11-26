@@ -58,7 +58,10 @@ func calculateStatistics(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
 }
 let statistics = calculateStatistics(scores: [5, 3, 100, 3, 9])
 print(statistics.sum)
-print(statistics.2)
+print(statistics.2)  //タプルの中の３番目
+
+let min = statistics.min
+let max = statistics.max
 
 //: Functions can be nested. Nested functions have access to variables that were declared in the outer function. You can use nested functions to organize the code in a function that is long or complex.
 //:
@@ -80,11 +83,15 @@ func makeIncrementer() -> ((Int) -> Int) {
     }
     return addOne
 }
+
+// incrementには関数が入る
 var increment = makeIncrementer()
 increment(7)
 
 //: A function can take another function as one of its arguments.
 //:
+
+// conditionの引数は関数
 func hasAnyMatches(list: [Int], condition: (Int) -> Bool) -> Bool {
     for item in list {
         if condition(item) {
