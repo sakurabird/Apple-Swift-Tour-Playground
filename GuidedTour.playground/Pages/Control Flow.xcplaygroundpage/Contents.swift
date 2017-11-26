@@ -17,11 +17,23 @@ print(teamScore)
 //:
 //: You can use `if` and `let` together to work with values that might be missing. These values are represented as optionals. An optional value either contains a value or contains `nil` to indicate that a value is missing. Write a question mark (`?`) after the type of a value to mark the value as optional.
 //:
+// Optional型であることを示すため?を型の後ろに付ける
 var optionalString: String? = "Hello"
 print(optionalString == nil)
 
+var optionalString2: String?
+print(optionalString2 == nil)
+
+//var optionalString3: String = "hello"
+//optionalString3 = nil　//実行時エラー
+//print(optionalString3 == nil)
+
+
 var optionalName: String? = "John Appleseed"
+optionalName = nil //これを入れるとif文は実行されない
 var greeting = "Hello!"
+
+// nilじゃなければオプショナルの値はアンラップされず定数に代入され、コードブロック内でアンラップされた値が利用可能になる
 if let name = optionalName {
     greeting = "Hello, \(name)"
 }
@@ -35,6 +47,8 @@ if let name = optionalName {
 //:
 let nickName: String? = nil
 let fullName: String = "John Appleseed"
+
+// ??を使うとオプショナルの値がnilならデフォルトの値を代わりに使ってくれる
 let informalGreeting = "Hi \(nickName ?? fullName)"
 
 //: Switches support any kind of data and a wide variety of comparison operations—they aren’t limited to integers and tests for equality.
