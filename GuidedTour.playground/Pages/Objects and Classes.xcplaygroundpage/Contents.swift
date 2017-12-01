@@ -7,6 +7,14 @@ class Shape {
     func simpleDescription() -> String {
         return "A shape with \(numberOfSides) sides."
     }
+
+  let param = "aiueo"
+  func aisatsu(param: String) -> String{
+    return "konnichiwa \(param)san"
+  }
+  init() {
+    aisatsu(param: param)
+  }
 }
 
 //: - Experiment:
@@ -64,6 +72,27 @@ test.simpleDescription()
 
 //: - Experiment:
 //: Make another subclass of `NamedShape` called `Circle` that takes a radius and a name as arguments to its initializer. Implement an `area()` and a `simpleDescription()` method on the `Circle` class.
+class Circle: NamedShape {
+  var radius: Double
+
+  init(radius: Double, name: String) {
+    self.radius = radius
+    super.init(name: name)
+    numberOfSides = 1
+  }
+
+  func area() -> Double {
+    return radius * radius * Double.pi
+  }
+
+  override func simpleDescription() -> String {
+    return "A circle radius \(radius)."
+  }
+}
+let test2 = Circle(radius: 5, name: "my test circle")
+test2.area()
+test2.simpleDescription()
+
 //:
 //: In addition to simple properties that are stored, properties can have a getter and a setter.
 //:
