@@ -96,7 +96,7 @@ test2.simpleDescription()
 //:
 //: In addition to simple properties that are stored, properties can have a getter and a setter.
 //:
-class EquilateralTriangle: NamedShape {
+class EquilateralTriangle: NamedShape { //等辺三角形
     var sideLength: Double = 0.0
 
     init(sideLength: Double, name: String) {
@@ -105,7 +105,7 @@ class EquilateralTriangle: NamedShape {
         numberOfSides = 3
     }
 
-    var perimeter: Double {
+    var perimeter: Double { // perimeter(周囲)
         get {
              return 3.0 * sideLength
         }
