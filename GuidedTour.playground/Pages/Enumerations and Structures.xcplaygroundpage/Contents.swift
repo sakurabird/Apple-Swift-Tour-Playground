@@ -6,6 +6,8 @@ enum Rank: Int {
     case ace = 1
     case two, three, four, five, six, seven, eight, nine, ten
     case jack, queen, king
+    case hyaku = 100
+    case hyakuichi
     func simpleDescription() -> String {
         switch self {
             case .ace:
@@ -21,11 +23,26 @@ enum Rank: Int {
         }
     }
 }
+// enumの要素に値を割り当てなかったら数値リテラルなら順番に値がインクリメントされて設定される
 let ace = Rank.ace
+let two = Rank.two
+let ten = Rank.ten
+let jack = Rank.jack
+let king = Rank.king
+let hyaku = Rank.hyaku
 let aceRawValue = ace.rawValue
+let twoRawValue = two.rawValue
+let tenRawValue = ten.rawValue
+let jackRawValue = jack.rawValue
+let kingRawValue = king.rawValue
+let hyakuRawValue = hyaku.rawValue
 
 //: - Experiment:
 //: Write a function that compares two `Rank` values by comparing their raw values.
+func compareRawValues(rank1: Rank, rank2: Rank) -> Bool {
+  return rank1.rawValue > rank2.rawValue
+}
+let isFirstBig = compareRawValues(rank1: Rank.king, rank2: Rank.four)
 //:
 //: By default, Swift assigns the raw values starting at zero and incrementing by one each time, but you can change this behavior by explicitly specifying values. In the example above, `Ace` is explicitly given a raw value of `1`, and the rest of the raw values are assigned in order. You can also use strings or floating-point numbers as the raw type of an enumeration. Use the `rawValue` property to access the raw value of an enumeration case.
 //:
