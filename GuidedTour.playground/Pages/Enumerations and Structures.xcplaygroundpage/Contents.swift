@@ -121,15 +121,36 @@ switch success {
 //:
 //: Use `struct` to create a structure. Structures support many of the same behaviors as classes, including methods and initializers. One of the most important differences between structures and classes is that structures are always copied when they are passed around in your code, but classes are passed by reference.
 //:
+// 構造体は値渡し・クラスは参照渡し
+
 struct Card {
     var rank: Rank
     var suit: Suit
     func simpleDescription() -> String {
         return "The \(rank.simpleDescription()) of \(suit.simpleDescription())"
     }
+
+  // 書き方がよくわからなかったのでここを参考にさせてもらった
+  // https://stackoverflow.com/questions/24109691/add-a-method-to-card-that-creates-a-full-deck-of-cards-with-one-card-of-each-co
+  func createFullCards() -> [Card] {
+    var deck: [Card] = []
+
+    // Rank,Suitにこの配列を渡すメソッドを追加したいところ
+    let ranks = [Rank.ace, Rank.two, Rank.three, Rank.four, Rank.five, Rank.six, Rank.seven, Rank.eight, Rank.nine, Rank.ten, Rank.jack, Rank.queen, Rank.king]
+    let suits = [Suit.spades, Suit.hearts, Suit.diamonds, Suit.clubs]
+
+    for suit in suits {
+      for rank in ranks {
+        deck.append(Card(rank: rank, suit: suit))
+      }
+    }
+    return deck
+  }
 }
 let threeOfSpades = Card(rank: .three, suit: .spades)
 let threeOfSpadesDescription = threeOfSpades.simpleDescription()
+
+let fulldeck = threeOfSpades.createFullCards()
 
 //: - Experiment:
 //: Add a method to `Card` that creates a full deck of cards, with one card of each combination of rank and suit.
