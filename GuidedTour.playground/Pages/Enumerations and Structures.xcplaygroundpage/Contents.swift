@@ -68,9 +68,23 @@ enum Suit {
                 return "clubs"
         }
     }
+
+  func color() -> String {
+    switch self {
+    case .spades, .clubs:
+      return "black"
+    case .hearts, .diamonds:
+      return "red"
+    }
+  }
+
 }
 let hearts = Suit.hearts
 let heartsDescription = hearts.simpleDescription()
+
+let spades = Suit.spades
+let colorSpades = Suit.spades.color()
+let colorDiamonds = Suit.diamonds.color()
 
 //: - Experiment:
 //: Add a `color()` method to `Suit` that returns “black” for spades and clubs, and returns “red” for hearts and diamonds.
