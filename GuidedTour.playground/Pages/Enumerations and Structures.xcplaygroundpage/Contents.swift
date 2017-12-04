@@ -94,11 +94,14 @@ let colorDiamonds = Suit.diamonds.color()
 //: If an enumeration has raw values, those values are determined as part of the declaration, which means every instance of a particular enumeration case always has the same raw value. Another choice for enumeration cases is to have values associated with the case—these values are determined when you make the instance, and they can be different for each instance of an enumeration case. You can think of the associated values as behaving like stored properties of the enumeration case instance. For example, consider the case of requesting the sunrise and sunset times from a server. The server either responds with the requested information, or it responds with a description of what went wrong.
 //:
 enum ServerResponse {
-    case result(String, String)
-    case failure(String)
+  case result(String, String)
+  case failure(String)
+  case case3(Int)
 }
 
-let success = ServerResponse.result("6:00 am", "8:09 pm")
+//let success = ServerResponse.result("6:00 am", "8:09 pm")
+let success = ServerResponse.failure("server internal error")
+//let success = ServerResponse.case3(456)
 let failure = ServerResponse.failure("Out of cheese.")
 
 switch success {
@@ -106,7 +109,10 @@ switch success {
         print("Sunrise is at \(sunrise) and sunset is at \(sunset).")
     case let .failure(message):
         print("Failure...  \(message)")
+    case let .case3(var1):
+        print("Case3...  \(var1)")
 }
+
 
 //: - Experiment:
 //: Add a third case to `ServerResponse` and to the switch.
