@@ -32,6 +32,25 @@ let bDescription = b.simpleDescription
 
 //: - Experiment:
 //: Write an enumeration that conforms to this protocol.
+
+// プロトコルを実装したenumを定義する
+enum EnmProtcol : String, ExampleProtocol {
+  case A = "Aです", B = "Bです"
+  var simpleDescription: String {
+    get {
+      return self.rawValue
+    }
+  }
+
+  mutating func adjust() {
+    self = .B
+  }
+}
+var v = EnmProtcol.A
+v.adjust()
+let vDiscription = v.simpleDescription
+
+//
 //:
 //: Notice the use of the `mutating` keyword in the declaration of `SimpleStructure` to mark a method that modifies the structure. The declaration of `SimpleClass` doesn’t need any of its methods marked as mutating because methods on a class can always modify the class.
 //:
