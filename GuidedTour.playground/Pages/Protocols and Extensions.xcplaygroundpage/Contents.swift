@@ -68,6 +68,15 @@ print(7.simpleDescription)
 
 //: - Experiment:
 //: Write an extension for the `Double` type that adds an `absoluteValue` property.
+// Doubleを拡張して絶対値を求める処理を追加する
+extension Double {
+  var absoluteValue: Double {
+    get {
+      return Swift.abs(self)
+    }
+  }
+}
+print(-7.15.absoluteValue)
 //:
 //: You can use a protocol name just like any other named type—for example, to create a collection of objects that have different types but that all conform to a single protocol. When you work with values whose type is a protocol type, methods outside the protocol definition are not available.
 //:
