@@ -83,6 +83,11 @@ print(-7.15.absoluteValue)
 let protocolValue: ExampleProtocol = a
 print(protocolValue.simpleDescription)
 // print(protocolValue.anotherProperty)  // Uncomment to see the error
+// ↑のコメントを外すと次のようなエラーが発生する
+//error: GuidedTour.playground:79:8: error: value of type 'ExampleProtocol' has no member 'anotherProperty'
+//print(protocolValue.anotherProperty)  // Uncomment to see the error
+//^~~~~~~~~~~~~ ~~~~~~~~~~~~~~~
+
 
 //: Even though the variable `protocolValue` has a runtime type of `SimpleClass`, the compiler treats it as the given type of `ExampleProtocol`. This means that you can’t accidentally access methods or properties that the class implements in addition to its protocol conformance.
 //:
