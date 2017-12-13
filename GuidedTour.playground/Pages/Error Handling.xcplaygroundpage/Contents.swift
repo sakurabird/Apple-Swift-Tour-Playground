@@ -32,9 +32,17 @@ do {
 //:
 //: You can provide multiple `catch` blocks that handle specific errors. You write a pattern after `catch` just as you do after `case` in a switch.
 //:
+
+enum ThirdBlockError: Error {
+  case thirdBlock
+}
+
 do {
-    let printerResponse = try send(job: 1440, toPrinter: "Gutenberg")
+  let printerResponse = try send(job: 1440, toPrinter: "Gutenberg")
+//  let printerResponse = try send(job: 1440, toPrinter: "Never Has Toner") // second catch block
     print(printerResponse)
+  //    throw PrinterError.onFire // first catch block
+      throw ThirdBlockError.thirdBlock // third catch block
 } catch PrinterError.onFire {
     print("I'll just put this over here, with the rest of the fire.")
 } catch let printerError as PrinterError {
