@@ -35,12 +35,31 @@ func anyCommonElements<T: Sequence, U: Sequence>(_ lhs: T, _ rhs: U) -> Bool
    return false
 }
 anyCommonElements([1, 2, 3], [3])
+//anyCommonElements(3, [3])//条件に合わないとエラー
+//Playground execution failed:
+//
+//error: GuidedTour.playground:32:19: error: argument type 'Int' does not conform to expected type 'Sequence'
+//anyCommonElements(3, [3])
 
 //: - Experiment:
 //: Modify the `anyCommonElements(_:_:)` function to make a function that returns an array of the elements that any two sequences have in common.
 //:
 //: Writing `<T: Equatable>` is the same as writing `<T> ... where T: Equatable`.
 //:
+// よくわからなかったのでhttps://stackoverflow.com/a/39528608を見た。すみません。
+func commonElements<T: Sequence, U: Sequence>(_ lhs: T, _ rhs: U) -> [T.Iterator.Element]
+  where T.Iterator.Element: Equatable, T.Iterator.Element == U.Iterator.Element {
+    var common: [T.Iterator.Element] = []
 
+    for lhsItem in lhs {
+      for rhsItem in rhs {
+        if lhsItem == rhsItem {
+          common.append(lhsItem)
+        }
+      }
+    }
+    return common
+}
+commonElements([1,2,3], [1,2,3])
 
 //: [Previous](@previous)
